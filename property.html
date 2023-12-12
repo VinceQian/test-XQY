@@ -74,28 +74,23 @@
 				23 Dec 2017 08:00
 			</td>
 		</tr>
-		<tr title="Date and time, default formatting, no data" class="ignore">
+		<tr title="Date and time, default formatting, no data">
 			<td>
 				<time property="datetime2" datetime="YYYY-MM-DD HH:ii"></time>
 			</td>
 			<td>
+				<script>
+					var currentDate = new Date();
 
-			</td>
-		</tr>
-		<tr title="Date, custom formatting">
-			<td>
-				<time property="date2" datetime="1986-06-13">[month(date2, 'name')] [day(date2)][ordinal(day(date2))], [year(date2)]</time>
-			</td>
-			<td>
-				June 13th, 1986
-			</td>
-		</tr>
-		<tr title="Date, custom formatting, no date">
-			<td>
-				<time property="date3">[month(date3).name] [day(date3)][ordinal(day(date3))], [year(date3)]</time>
-			</td>
-			<td>
-				<time style="--prepend-on-edit: '(No Date3)'"></time>
+					var day = currentDate.getDate();
+					var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+					var monthIndex = currentDate.getMonth();
+					var year = currentDate.getFullYear();
+
+					day = day < 10 ? "0" + day : day;
+
+					var formattedDate = day + " " + monthNames[monthIndex] + " " + year + " 00:00";
+					document.write(formattedDate);</script>				
 			</td>
 		</tr>
 	</table>
