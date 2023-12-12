@@ -394,7 +394,17 @@ table.reftest td:first-child {
 		</tr>
 		<tr>
 			<td>Mavo.Functions.util.fixDateString("08:15")</td>
-			<td>"<script>document.write((new Date().toISOString().slice(0, 10)))</script>T08:15"</td>
+			<td>"<script>
+				function toIsoString(date) {
+					var	pad = function(num) {
+							return (num < 10 ? '0' : '') + num;
+						};
+					return date.getFullYear() +
+						'-' + pad(date.getMonth() + 1) +
+						'-' + pad(date.getDate())
+				}
+				document.write(toIsoString(new Date()))
+			</script>T08:15"</td>
 		</tr>
 		<tr>
 			<td>Mavo.Functions.util.fixDateString("foobar")</td>
